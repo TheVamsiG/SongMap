@@ -18,9 +18,22 @@ class Map:
             self.wave = wavio.read(filename)
             self.left_channel = self.wave.data[:, 0]
             self.right_channel = self.wave.data[:, 1]
+            self.grayscale_map = get_grayscale_map()
         except Exception:
             self.wave = None
             raise Exception("Could not read the file")
+
+    def get_new_map(self, filename):
+        try:
+            self.wave = wavio.read(filename)
+            self.left_channel = self.wave.data[:, 0]
+            self.right_channel = self.wave.data[:, 1]
+            self.grayscale_map = get_grayscale_map()
+        except Exception:
+            self.wave = None
+            raise Exception("Could not read the file")
+
+        return
 
     def get_grayscale_map(self):
 
