@@ -10,12 +10,6 @@ class Oscillator:
 
     "class to generate either a sin/square oscillator"
 
-    def __init__(self, oscname):
-        if oscname == 'sin':
-            self.wg = self.sinInit()
-        else if oscname = 'sq':
-            self.sqInit()
-
     def sinInit(self):
 
         map_sin = Map("C4.wav")
@@ -57,3 +51,9 @@ class Oscillator:
         c_5 = map_sin.get_grayscale_map()
 
         return [c_4, d_4, e_4, f_4, g_4, a_4, b_4, c_5]
+
+    def __init__(self, oscname):
+        if oscname == "sin":
+            self.osc = self.sinInit()
+        elif oscname == "sq":
+            self.osc = self.sqInit()
