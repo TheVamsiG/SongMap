@@ -8,3 +8,5 @@ import cv2
 from HypeFincher import HypeFincher
 
 test = HypeFincher("sin", "sin", "sin", "sin")
+test.LFO_EN(1, True, 5)
+test.Synthesize()

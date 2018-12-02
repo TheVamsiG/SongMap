@@ -10,10 +10,10 @@ class LFO:
 
     def __init__(self, rate):
         if rate == 5:
-            self.map_lfo = Map("LFO_5.wav").grayscale_map
-        else if rate == 10:
-            self.map_lfo = Map("LFO_10.wav").grayscale_map
-        else if rate == 15:
-            self.map_lfo = Map("LFO_15.wav").grayscale_map
-        else if rate == 20:
-            self.map_lfo = Map("LFO_20.wav").grayscale_map
+            self.map_lfo = Map("LFO_5.wav").get_grayscale_map()
+        elif rate == 10:
+            self.map_lfo = Map("LFO_10.wav").get_grayscale_map()
+        elif rate == 15:
+            self.map_lfo = Map("LFO_15.wav").get_grayscale_map()
+        elif rate == 20:
+            self.map_lfo = Map("LFO_20.wav").get_grayscale_map()
