@@ -1,4 +1,3 @@
-#! /bin/usr/python3
 import wavio
 import numpy as np
 from numpy import ndarray
@@ -57,14 +56,19 @@ class Map:
         image[:, :, 2] = np.clip(blue_reshape, 0, blue_reshape.max())/blue_reshape.max()
 
         return image
+    def get_map_value(self, tobrml, tobrmr):
 
-    def get_remap(self, tobrml, tobrmr):
         left_channel_rrshape = np.reshape(tobrml, (1, tobrml.shape[1]**2))
         right_channel_rrshape = np.reshape(tobrmr, (1, tobrmr.shape[1]**2))
         new_data = np.zeros((tobrml.shape[1]**2, 2))
         new_data[:,0] = left_channel_rrshape
         new_data[:,1] = left_channel_rrshape
         swidth = 2;
+
+        return new_data
+
+    def get_remap(self, tobrml, tobrmr):
+        new_data = get_mat_value(tobrml, tobrmr)
         wavio.write("remap.wav", new_data, rate=self.wave.rate, sampwidth=self.wave.sampwidth);
 
         return
