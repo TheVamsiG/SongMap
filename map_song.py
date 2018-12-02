@@ -6,22 +6,12 @@ from numpy import ndarray
 
 class Map:
     """
-    Class to map songs to images
+    Class to map sounds to images
     """
 
     #self.right_gray_image
     #self.left_gray_image
 
-    def __init__(self, filename):
-        """Initialization Function: reads file and errors if it doesn't exist """
-        try:
-            self.wave = wavio.read(filename)
-            self.left_channel = self.wave.data[:, 0]
-            self.right_channel = self.wave.data[:, 1]
-            self.grayscale_map = get_grayscale_map()
-        except Exception:
-            self.wave = None
-            raise Exception("Could not read the file")
 
     def get_new_map(self, filename):
         try:
@@ -32,7 +22,6 @@ class Map:
         except Exception:
             self.wave = None
             raise Exception("Could not read the file")
-
         return
 
     def get_grayscale_map(self):
@@ -79,3 +68,15 @@ class Map:
         wavio.write("remap.wav", new_data, rate=self.wave.rate, sampwidth=self.wave.sampwidth);
 
         return
+
+
+    def __init__(self, filename):
+         """Initialization Function: reads file and errors if it doesn't exist """
+         try:
+             self.wave = wavio.read(filename)
+             self.left_channel = self.wave.data[:, 0]
+             self.right_channel = self.wave.data[:, 1]
+             self.grayscale_map = self.get_grayscale_map()
+         except Exception:
+             self.wave = None
+             raise Exception("Could not read the file")
