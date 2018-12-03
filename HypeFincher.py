@@ -35,7 +35,6 @@ class HypeFincher:
         self.osc_4 = Oscillator(osc4type).osc;
         print("oscillator 4 has been initialized to", osc4type)
         print("\n")
-        synthesis = np.array([self.osc_1, self.osc_2, self.osc_3, self.osc_4])
 
 
     def LFO_EN(self, lfon, status, rate):
@@ -67,11 +66,10 @@ class HypeFincher:
 
         if self.LFO1_stat:
             LFO1 = LFO(self.LFO1_rate)
-            for i in osc_1_l:
+            for i in range(len(osc_1_l)):
                 osc_1_l[i] = np.multiply(LFO1.map_lfo[0], osc_1_l[i])
-            for i in osc_1_r:
+            for i in range(len(osc_1_r)):
                 osc_1_r[i] = np.multiply(LFO1.map_lfo[1], osc_1_r[i])
             print("success!")
 
-
-        return
+        return self.osc_3
