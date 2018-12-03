@@ -17,3 +17,5 @@ class LFO:
             self.map_lfo = Map("LFO_15.wav").get_grayscale_map()
         elif rate == 20:
             self.map_lfo = Map("LFO_20.wav").get_grayscale_map()
+
+        self.map_lfo = self.map_lfo/np.amax(np.abs(self.map_lfo))
