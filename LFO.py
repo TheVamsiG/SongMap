@@ -6,6 +6,7 @@ import numpy as np
 from numpy import ndarray
 from map_song import Map
 
+
 class LFO:
 
     def __init__(self, rate):
